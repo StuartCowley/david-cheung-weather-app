@@ -1,3 +1,17 @@
+# Weather App - my first React App
+
+Step 1: copy existing app
+
+```
+npx create-react-app weather-app
+```
+
+Step 2: create remote repos and push to remote repos
+
+Step 3: clear existing codes and create folders
+
+Step 4: adopt 'React team' method in using .jsx file extension. (i.e. not use 'Airbnb team')
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
