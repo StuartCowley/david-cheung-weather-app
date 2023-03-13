@@ -10,5 +10,6 @@ describe("LocationDetails", () => {
     );
     expect(getByText("Manchester, UK")).toBeTruthy(); //  if the text exists as expected with toBeTruthy()
     expect(getByText("Manchester, UK")).toBeInstanceOf(HTMLHeadingElement); //  more specific with our tests
+    expect(getByText("Manchester, UK")).toHaveClass("location-details");
   });
 });

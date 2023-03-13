@@ -10,14 +10,6 @@ it("renders learn react link", () => {
   );
   expect(getByText("Manchester, UK")).toBeTruthy();
   expect(getByText("Manchester, UK")).toBeInstanceOf(HTMLHeadingElement);
-  expect(getByText(1525046400000)).toBeTruthy();
-  expect(getByText("11°C")).toBeTruthy();
-  expect(getByText("Clear")).toBeTruthy();
-  expect(getByText("800")).toBeTruthy();
-  expect(getByText(1525046400000)).toBeInstanceOf(HTMLDivElement);
-  expect(getByText("11°C")).toBeInstanceOf(HTMLDivElement);
-  expect(getByText("Clear")).toBeInstanceOf(HTMLDivElement);
-  expect(getByText("800")).toBeInstanceOf(HTMLDivElement);
 });
 
 describe("App", () => {

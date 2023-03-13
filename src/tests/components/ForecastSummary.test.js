@@ -2,37 +2,71 @@ import React from "react";
 import { render } from "@testing-library/react";
 import ForecastSummary from "../../components/ForecastSummary";
 
+function decode(str) {
+  let txt = document.createElement("textarea");
+  txt.innerHTML = str;
+  return txt.value;
+}
+
 describe("ForecastSummary", () => {
-  const myForecasts = {
+  const validProps = {
     date: 1525046400000,
+    description: "Stub description",
+    icon: "200",
     temperature: {
-      max: 11,
-      min: 4,
+      min: 12,
+      max: 22,
     },
-    wind: {
-      speed: 13,
-      direction: "s",
-    },
-    humidity: 30,
-    description: "Clear",
-    icon: "800",
   };
+
   it("renders", () => {
-    const { getByText } = render(
+    const { getByText, getByTestId } = render(
       <ForecastSummary
-        date={myForecasts.date}
-        temperature={myForecasts.temperature}
-        description={myForecasts.description}
-        icon={myForecasts.icon}
+        date={validProps.date}
+        temperature={validProps.temperature}
+        description={validProps.description}
+        icon={validProps.icon}
       />
     );
-    expect(getByText(1525046400000)).toBeTruthy();
-    expect(getByText("11°C")).toBeTruthy();
-    expect(getByText("Clear")).toBeTruthy();
-    expect(getByText("800")).toBeTruthy();
-    expect(getByText(1525046400000)).toBeInstanceOf(HTMLDivElement);
-    expect(getByText("11°C")).toBeInstanceOf(HTMLDivElement);
-    expect(getByText("Clear")).toBeInstanceOf(HTMLDivElement);
-    expect(getByText("800")).toBeInstanceOf(HTMLDivElement);
+
+    // We need at least 2 tests. One for snapshot testing, and one for values
+
+    expect(getByText("Mon 30th Apr")).toBeTruthy();
+    expect(getByText(`22${decode("&deg;C")}`)).toBeTruthy();
+    expect(getByText("Stub description")).toBeTruthy();
+    // expect(getByTestId("forecast-icon")).toHaveTextContent("200");
+
+    expect(getByText("Mon 30th Apr")).toBeInstanceOf(HTMLDivElement);
+    expect(getByText(`22${decode("&deg;C")}`)).toBeInstanceOf(HTMLDivElement);
+    expect(getByText("Stub description")).toBeInstanceOf(HTMLDivElement);
+    expect(getByTestId("forecast-icon")).toBeInstanceOf(HTMLDivElement);
+
+    expect(getByText("Mon 30th Apr")).toHaveAttribute(
+      "class",
+      "forecast-summary__date"
+    );
+    expect(getByText("22°C")).toHaveAttribute(
+      "class",
+      "forecast-summary__temperature"
+    );
+    expect(getByText("Stub description")).toHaveAttribute(
+      "class",
+      "forecast-summary__description"
+    );
+    expect(getByTestId("forecast-icon")).toHaveAttribute(
+      "class",
+      "forecast-summary__icon"
+    );
+    expect(getByTestId("forecast-icon")).toHaveAttribute(
+      "data-testid",
+      "forecast-icon"
+    );
+
+    expect(getByText("Mon 30th Apr")).toHaveClass("forecast-summary__date");
+    expect(getByText("Stub description")).toHaveClass(
+      "forecast-summary__description"
+    );
+    expect(getByTestId("forecast-icon")).toHaveClass("forecast-summary__icon");
+    expect(getByText("22°C")).toHaveClass("forecast-summary__temperature");
   });
 });
