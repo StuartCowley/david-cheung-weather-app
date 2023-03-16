@@ -17,7 +17,21 @@ describe("ForecastSummary", () => {
       min: 12,
       max: 22,
     },
+    onSelect: () => {},
   };
+
+  it("renders correctly", () => {
+    const { asFragment } = render(
+      <ForecastSummary
+        date={validProps.date}
+        temperature={validProps.temperature}
+        description={validProps.description}
+        icon={validProps.icon}
+        onSelect={validProps.onSelect}
+      />
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 
   it("renders", () => {
     const { getByText, getByTestId } = render(
@@ -26,6 +40,7 @@ describe("ForecastSummary", () => {
         temperature={validProps.temperature}
         description={validProps.description}
         icon={validProps.icon}
+        onSelect={validProps.onSelect}
       />
     );
 

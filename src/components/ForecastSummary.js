@@ -21,7 +21,7 @@ function dateOrdinal(d) {
 }
 
 function ForecastSummary(props) {
-  const { date, temperature, description, icon } = props;
+  const { date, temperature, description, icon, onSelect } = props;
   const tempDate1 = new Date(date).toDateString(); // Mon Apr 30 2018
   const tempDate2 = tempDate1.split(" ");
   const formattedDate = `${tempDate2[0]} ${dateOrdinal(tempDate2[2])} ${
@@ -38,6 +38,9 @@ function ForecastSummary(props) {
         &deg;C
       </div>
       <div className="forecast-summary__description">{description}</div>
+      <button type="button" onClick={() => onSelect(date)}>
+        More details
+      </button>
     </div>
   );
 }
@@ -52,7 +55,6 @@ ForecastSummary.propTypes = {
     min: PropTypes.number,
     max: PropTypes.number,
   }).isRequired,
+  // other props validation
+  onSelect: PropTypes.func.isRequired,
 };
-
-// <WeatherIcon name="owm" iconId={icon} flip="horizontal" rotate="90" />
-// {icon}

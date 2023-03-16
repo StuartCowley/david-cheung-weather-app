@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForecastSummaries renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="forecast-summaries"
+  >
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Mon 30th Apr
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-sunny"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__temperature"
+      >
+        11°C
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Clear
+      </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Tue 1st May
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-thunderstorm"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__temperature"
+      >
+        13°C
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Stormy
+      </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Wed 2nd May
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-snow"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__temperature"
+      >
+        1°C
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Heavy Snow
+      </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Thu 3rd May
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-tornado"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__temperature"
+      >
+        20°C
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Tornado
+      </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Fri 4th May
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-haze"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__temperature"
+      >
+        25°C
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Hazy
+      </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
