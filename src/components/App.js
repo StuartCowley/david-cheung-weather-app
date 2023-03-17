@@ -23,6 +23,9 @@ function App() {
 
   const [searchText, setSearchText] = useState("");
 
+  // const [errorMessage, setErrorMessage] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
@@ -59,7 +62,13 @@ function App() {
   // Similar to componentDidMount and componentDidUpdate:
   // fetch external request and response, then update all states
   useEffect(() => {
-    getForecast(searchText, setSelectedDate, setForecasts, setLocation);
+    getForecast(
+      searchText,
+      setSelectedDate,
+      setForecasts,
+      setLocation,
+      setErrorMessage
+    );
   }, []);
 
   // let doForecastDetails;
@@ -72,22 +81,54 @@ function App() {
   const handleCitySearch = () => {
     // should make another getForecast() request.
     // (example of endpoint with param: https://cmd-shift-weather-app.onrender.com/forecast?city=Leeds).
-    getForecast(searchText, setSelectedDate, setForecasts, setLocation);
+    getForecast(
+      searchText,
+      setSelectedDate,
+      setForecasts,
+      setLocation,
+      setErrorMessage
+    );
   };
+
+  // Add conditional rendering for <ForecastSummaries /> and <ForecastDetails /> whenever ????
+  // let getCity;
+  // if (errorMessage) {
+  //   getCity = false;
+  // } else {
+  //   getCity = true;
+  // }
 
   return (
     <div className="weather-app">
-      <LocationDetails city={location.city} country={location.country} />
+      <LocationDetails
+        city={location.city}
+        country={location.country}
+        errorMessage={errorMessage}
+      />
       <SearchForm
         searchText={searchText}
         setSearchText={setSearchText}
         onSubmit={handleCitySearch}
       />
-      <ForecastSummaries
-        forecasts={forecasts}
-        onForecastSelect={handleForecastSelect}
-      />
-      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
+
+      {/* {getCity && (
+        <ForecastSummaries
+          forecasts={forecasts}
+          onForecastSelect={handleForecastSelect}
+        />
+      )}
+      {getCity && selectedForecast && (
+        <ForecastDetails forecast={selectedForecast} />
+      )} */}
+      {!errorMessage && (
+        <>
+          <ForecastSummaries
+            forecasts={forecasts}
+            onForecastSelect={handleForecastSelect}
+          />
+          {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
+        </>
+      )}
     </div>
   );
 }
