@@ -4,10 +4,6 @@ import ForecastSummary from "./ForecastSummary";
 
 import "../styles/ForecastSummaries.css";
 
-// original syntax:
-// function ForecastSummaries(props) {
-//   const { forecasts } = props;
-
 function ForecastSummaries({ forecasts, onForecastSelect }) {
   return (
     <div className="forecast-summaries">

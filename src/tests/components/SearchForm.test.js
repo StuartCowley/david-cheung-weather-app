@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import SearchForm from "../../components/SearchForm";
 
 describe("SearchForm", () => {
@@ -21,13 +21,14 @@ describe("SearchForm", () => {
   });
 
   it("check button innertext", () => {
-    const { container } = render(
+    render(
       <SearchForm
         searchText={validProps.searchText}
         setSearchText={validProps.setSearchText}
         onSubmit={validProps.onSubmit}
       />
     );
-    expect(container.querySelector("button").innerHTML).toEqual("Search");
+    const buttons = screen.getAllByRole("button");
+    expect(buttons[0]).toHaveTextContent("Search");
   });
 });

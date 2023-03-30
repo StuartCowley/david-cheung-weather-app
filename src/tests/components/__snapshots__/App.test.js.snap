@@ -8,14 +8,14 @@ exports[`App renders correctly 1`] = `
     <h1
       class="location-details"
     >
-      Manchester, UK
+      , 
     </h1>
     <div
       class="search-form"
     >
       <input
         type="text"
-        value=""
+        value="Manchester"
       />
       <button
         type="submit"

@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ForecastDetails from "../../components/ForecastDetails";
 
 describe("ForecastDetails", () => {
@@ -22,51 +22,61 @@ describe("ForecastDetails", () => {
   });
 
   it("renders", () => {
-    const { getByText } = render(<ForecastDetails forecast={validProps} />);
+    render(<ForecastDetails forecast={validProps} />);
 
     // We need at least 2 tests. One for snapshot testing, and one for values
 
-    expect(getByText("Mon 30th Apr")).toBeTruthy();
-    expect(getByText("Max temperature: 22°C")).toBeTruthy();
-    expect(getByText("Min temperature: 12°C")).toBeTruthy();
-    expect(getByText("Humidity: 50")).toBeTruthy();
-    expect(getByText("Wind: 8mph")).toBeTruthy();
+    expect(screen.getByText("Mon 30th Apr")).toBeTruthy();
+    expect(screen.getByText("Max temperature: 22°C")).toBeTruthy();
+    expect(screen.getByText("Min temperature: 12°C")).toBeTruthy();
+    expect(screen.getByText("Humidity: 50")).toBeTruthy();
+    expect(screen.getByText("Wind: 8mph")).toBeTruthy();
 
-    expect(getByText("Mon 30th Apr")).toBeInstanceOf(HTMLDivElement);
-    expect(getByText("Max temperature: 22°C")).toBeInstanceOf(HTMLDivElement);
-    expect(getByText("Min temperature: 12°C")).toBeInstanceOf(HTMLDivElement);
-    expect(getByText("Humidity: 50")).toBeInstanceOf(HTMLDivElement);
-    expect(getByText("Wind: 8mph")).toBeInstanceOf(HTMLDivElement);
+    expect(screen.getByText("Mon 30th Apr")).toBeInstanceOf(HTMLDivElement);
+    expect(screen.getByText("Max temperature: 22°C")).toBeInstanceOf(
+      HTMLDivElement
+    );
+    expect(screen.getByText("Min temperature: 12°C")).toBeInstanceOf(
+      HTMLDivElement
+    );
+    expect(screen.getByText("Humidity: 50")).toBeInstanceOf(HTMLDivElement);
+    expect(screen.getByText("Wind: 8mph")).toBeInstanceOf(HTMLDivElement);
 
-    expect(getByText("Mon 30th Apr")).toHaveAttribute(
+    expect(screen.getByText("Mon 30th Apr")).toHaveAttribute(
       "class",
       "forecast-details__date"
     );
-    expect(getByText("Max temperature: 22°C")).toHaveAttribute(
+    expect(screen.getByText("Max temperature: 22°C")).toHaveAttribute(
       "class",
       "forecast-details__temperature-max"
     );
-    expect(getByText("Min temperature: 12°C")).toHaveAttribute(
+    expect(screen.getByText("Min temperature: 12°C")).toHaveAttribute(
       "class",
       "forecast-details__temperature-min"
     );
-    expect(getByText("Humidity: 50")).toHaveAttribute(
+    expect(screen.getByText("Humidity: 50")).toHaveAttribute(
       "class",
       "forecast-details__humidity"
     );
-    expect(getByText("Wind: 8mph")).toHaveAttribute(
+    expect(screen.getByText("Wind: 8mph")).toHaveAttribute(
       "class",
       "forecast-details__wind"
     );
 
-    expect(getByText("Mon 30th Apr")).toHaveClass("forecast-details__date");
-    expect(getByText("Max temperature: 22°C")).toHaveClass(
+    expect(screen.getByText("Mon 30th Apr")).toHaveClass(
+      "forecast-details__date"
+    );
+    expect(screen.getByText("Max temperature: 22°C")).toHaveClass(
       "forecast-details__temperature-max"
     );
-    expect(getByText("Min temperature: 12°C")).toHaveClass(
+    expect(screen.getByText("Min temperature: 12°C")).toHaveClass(
       "forecast-details__temperature-min"
     );
-    expect(getByText("Humidity: 50")).toHaveClass("forecast-details__humidity");
-    expect(getByText("Wind: 8mph")).toHaveClass("forecast-details__wind");
+    expect(screen.getByText("Humidity: 50")).toHaveClass(
+      "forecast-details__humidity"
+    );
+    expect(screen.getByText("Wind: 8mph")).toHaveClass(
+      "forecast-details__wind"
+    );
   });
 });
