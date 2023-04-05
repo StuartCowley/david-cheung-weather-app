@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 function LocationDetails(props) {
   const { city, country, errorMessage } = props;
+
   return errorMessage ? (
     <h1>{errorMessage}</h1>
   ) : (

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../styles/forecast-details.css";
 
 function dateOrdinal(d) {
   let subfix;
@@ -28,14 +29,15 @@ function ForecastDetails({ forecast }) {
   return (
     <div className="forecast-details" data-testid="forecast-details">
       <div className="forecast-details__date">{formattedDate}</div>
-      <div className="forecast-details__temperature-max">
-        Max temperature: {temperature.max}&deg;C
+
+      <div className="forecast-details__temperature">
+        Temperature: {temperature.min}&deg;C - {temperature.max}&deg;C
       </div>
-      <div className="forecast-details__temperature-min">
-        Min temperature: {temperature.min}&deg;C
-      </div>
+
       <div className="forecast-details__humidity">Humidity: {humidity}</div>
-      <div className="forecast-details__wind">Wind: {wind.speed}mph</div>
+      <div className="forecast-details__wind">
+        Wind: {wind.speed}mph {wind.direction.toUpperCase()}
+      </div>
     </div>
   );
 }

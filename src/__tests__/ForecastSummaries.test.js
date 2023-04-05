@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ForecastSummaries from "../../components/ForecastSummaries";
+import ForecastSummaries from "../components/ForecastSummaries";
+import renderer from "react-test-renderer";
 
 describe("ForecastSummaries", () => {
   const validProps = {
@@ -54,50 +55,36 @@ describe("ForecastSummaries", () => {
     onForecastSelect: () => {},
   };
 
-  it("renders correctly", () => {
-    const { asFragment } = render(
-      <ForecastSummaries
-        forecasts={validProps.forecasts}
-        onForecastSelect={validProps.onForecastSelect}
-      />
-    );
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it("should render list of 5 forecast", () => {
-    const { container } = render(
+  test("Renders as expected", () => {
+    const rendered = renderer.create(
       <ForecastSummaries
         forecasts={validProps.forecasts}
         onForecastSelect={validProps.onForecastSelect}
       />
     );
 
-    const fs = container.getElementsByClassName("forecast-summary");
-    expect(fs.length).toBe(5);
+    expect(rendered).toMatchSnapshot();
   });
 
-  it("should render list of 20 forecast details", () => {
-    const { container } = render(
+  test("Assert 5 foreast are present", () => {
+    render(
       <ForecastSummaries
         forecasts={validProps.forecasts}
         onForecastSelect={validProps.onForecastSelect}
       />
     );
-
-    const fs = container.querySelectorAll('[class^="forecast-summary__"]');
-    expect(fs.length).toBe(20);
+    const items = screen.getAllByTestId("forecast-summary");
+    expect(items).toHaveLength(5);
   });
 
-  it("should render list of 5 forecast", () => {
-    const { getAllByTestId } = render(
+  test("Assert 5 button are present", () => {
+    render(
       <ForecastSummaries
         forecasts={validProps.forecasts}
         onForecastSelect={validProps.onForecastSelect}
       />
     );
-
-    expect(getAllByTestId("forecast-summary")).toHaveLength(5);
+    const buttons = screen.getAllByRole("button");
+    expect(buttons).toHaveLength(5);
   });
-
-  // it("renders the correct number of ForecastSummary instances", () => {...});
 });

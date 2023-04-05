@@ -1,7 +1,6 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import App from "../../components/App";
-//import forecast from "../../data/forecast.json";
+import { render, screen, waitFor } from "@testing-library/react";
+import App from "../components/App";
+import renderer from "react-test-renderer";
 import axios from "axios";
 
 describe("App", () => {
@@ -9,12 +8,21 @@ describe("App", () => {
     jest.clearAllMocks();
   });
 
-  xit("renders correctly", () => {
-    const { asFragment } = render(<App />);
-    expect(asFragment()).toMatchSnapshot();
+  test("Renders as expected", () => {
+    Date.now = jest.fn(() => 1482363367071);
+    const rendered = renderer.create(<App />);
+
+    expect(rendered).toMatchSnapshot();
   });
 
-  it("renders learn react link", () => {
+  test("Assert h1 is present", () => {
+    render(<App />);
+
+    const headings = screen.getAllByRole("heading");
+    expect(headings[0]).toHaveTextContent("FIVE DAY FORECAST");
+  });
+
+  test("renders learn react link with spy axios", async () => {
     const mAxiosResponse = {
       data: {
         location: {
@@ -34,7 +42,7 @@ describe("App", () => {
             },
             humidity: 30,
             description: "Clear",
-            icon: "800",
+            icon: 800,
           },
           {
             date: 1525132800000,
@@ -48,7 +56,7 @@ describe("App", () => {
             },
             humidity: 80,
             description: "Stormy",
-            icon: "211",
+            icon: 211,
           },
           {
             date: 1525219200000,
@@ -62,7 +70,7 @@ describe("App", () => {
             },
             humidity: 50,
             description: "Heavy Snow",
-            icon: "602",
+            icon: 602,
           },
           {
             date: 1525305600000,
@@ -76,7 +84,7 @@ describe("App", () => {
             },
             humidity: 80,
             description: "Tornado",
-            icon: "781",
+            icon: 781,
           },
           {
             date: 1525392000000,
@@ -90,23 +98,18 @@ describe("App", () => {
             },
             humidity: 50,
             description: "Hazy",
-            icon: "721",
+            icon: 721,
           },
         ],
       },
     };
     jest.spyOn(axios, "get").mockResolvedValue(mAxiosResponse);
     render(<App />);
-
-    expect(screen.getByText("testCity, testCountry")).toBeTruthy();
-    expect(screen.getByText("testCity, testCountry")).toBeInstanceOf(
-      HTMLHeadingElement
-    );
-  });
-
-  xit("renders App component correctly", () => {
-    render(<App />);
-    const h1Element = screen.getByText(/Manchester, GB/i);
-    expect(h1Element).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("testCity, testCountry")).toBeTruthy();
+      expect(screen.getByText("testCity, testCountry")).toBeInstanceOf(
+        HTMLHeadingElement
+      );
+    });
   });
 });

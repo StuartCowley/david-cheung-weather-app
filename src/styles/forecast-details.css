@@ -1,0 +1,25 @@
+.forecast-details {
+  color: white;
+  font-weight: 800;
+  background-color: rgba(148, 0, 211, 0.4);
+  text-align: center;
+  padding: 20px;
+  transition: 1s;
+  width: 50%;
+  animation: roll-out 2s;
+}
+
+@keyframes roll-out {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .forecast-details {
+    width: 90%;
+  }
+}

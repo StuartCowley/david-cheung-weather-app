@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ForecastSummary from "../../components/ForecastSummary";
+import ForecastSummary from "../components/ForecastSummary";
+import renderer from "react-test-renderer";
 
 function decode(str) {
   let txt = document.createElement("textarea");
@@ -12,7 +13,7 @@ describe("ForecastSummary", () => {
   const validProps = {
     date: 1525046400000,
     description: "Stub description",
-    icon: "200",
+    icon: 200,
     temperature: {
       min: 12,
       max: 22,
@@ -20,8 +21,8 @@ describe("ForecastSummary", () => {
     onSelect: () => {},
   };
 
-  it("renders correctly", () => {
-    const { asFragment } = render(
+  test("Renders as expected", () => {
+    const rendered = renderer.create(
       <ForecastSummary
         date={validProps.date}
         temperature={validProps.temperature}
@@ -30,10 +31,10 @@ describe("ForecastSummary", () => {
         onSelect={validProps.onSelect}
       />
     );
-    expect(asFragment()).toMatchSnapshot();
+    expect(rendered).toMatchSnapshot();
   });
 
-  it("renders", () => {
+  test("Assert all classname elements are present", () => {
     render(
       <ForecastSummary
         date={validProps.date}
@@ -43,9 +44,27 @@ describe("ForecastSummary", () => {
         onSelect={validProps.onSelect}
       />
     );
+    expect(document.querySelector(".forecast-summary")).toBeTruthy();
+    expect(document.querySelector(".forecast-summary__date")).toBeTruthy();
+    expect(document.querySelector(".forecast-summary__icon")).toBeTruthy();
+    expect(
+      document.querySelector(".forecast-summary__temperature")
+    ).toBeTruthy();
+    expect(
+      document.querySelector(".forecast-summary__description")
+    ).toBeTruthy();
+  });
 
-    // We need at least 2 tests. One for snapshot testing, and one for values
-
+  test("Assert all props elements are present", () => {
+    render(
+      <ForecastSummary
+        date={validProps.date}
+        temperature={validProps.temperature}
+        description={validProps.description}
+        icon={validProps.icon}
+        onSelect={validProps.onSelect}
+      />
+    );
     expect(screen.getByText("Mon 30th Apr")).toBeTruthy();
     expect(screen.getByText(`22${decode("&deg;C")}`)).toBeTruthy();
     expect(screen.getByText("Stub description")).toBeTruthy();
@@ -57,39 +76,5 @@ describe("ForecastSummary", () => {
     );
     expect(screen.getByText("Stub description")).toBeInstanceOf(HTMLDivElement);
     expect(screen.getByTestId("forecast-icon")).toBeInstanceOf(HTMLDivElement);
-
-    expect(screen.getByText("Mon 30th Apr")).toHaveAttribute(
-      "class",
-      "forecast-summary__date"
-    );
-    expect(screen.getByText("22°C")).toHaveAttribute(
-      "class",
-      "forecast-summary__temperature"
-    );
-    expect(screen.getByText("Stub description")).toHaveAttribute(
-      "class",
-      "forecast-summary__description"
-    );
-    expect(screen.getByTestId("forecast-icon")).toHaveAttribute(
-      "class",
-      "forecast-summary__icon"
-    );
-    expect(screen.getByTestId("forecast-icon")).toHaveAttribute(
-      "data-testid",
-      "forecast-icon"
-    );
-
-    expect(screen.getByText("Mon 30th Apr")).toHaveClass(
-      "forecast-summary__date"
-    );
-    expect(screen.getByText("Stub description")).toHaveClass(
-      "forecast-summary__description"
-    );
-    expect(screen.getByTestId("forecast-icon")).toHaveClass(
-      "forecast-summary__icon"
-    );
-    expect(screen.getByText("22°C")).toHaveClass(
-      "forecast-summary__temperature"
-    );
   });
 });

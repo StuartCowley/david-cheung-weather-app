@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm Renders as expected 1`] = `
+<div
+  className="search-form"
+>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="Manchester"
+  />
+  <button
+    onClick={[Function]}
+    type="submit"
+  >
+    Search
+  </button>
+</div>
+`;

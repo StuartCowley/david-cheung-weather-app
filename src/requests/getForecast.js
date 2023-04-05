@@ -13,16 +13,16 @@ const getForecast = (
   if (searchText) {
     endpoint += `?city=${searchText}`;
   }
-  console.log(">>>", endpoint);
+
   return axios
     .get(endpoint)
     .then((response) => {
-      console.log(">>>axios result", response.data.location);
       setSelectedDate(response.data.forecasts[0].date);
       setForecasts(response.data.forecasts);
       setLocation(response.data.location);
     })
     .catch((error) => {
+      setForecasts([]);
       if (error.response === undefined) {
         console.log(error);
         return;

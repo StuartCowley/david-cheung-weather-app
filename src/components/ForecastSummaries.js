@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ForecastSummary from "./ForecastSummary";
-
-import "../styles/ForecastSummaries.css";
+import "../styles/forecast-summaries.css";
 
 function ForecastSummaries({ forecasts, onForecastSelect }) {
   return (
@@ -13,7 +12,7 @@ function ForecastSummaries({ forecasts, onForecastSelect }) {
           date={forecast.date}
           temperature={forecast.temperature}
           description={forecast.description}
-          icon={forecast.icon.toString()}
+          icon={forecast.icon}
           onSelect={onForecastSelect}
         />
       ))}

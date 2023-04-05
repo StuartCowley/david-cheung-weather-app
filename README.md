@@ -1,84 +1,63 @@
-# Weather App - my first React App
+# Get weather forecast from weather-app
 
-Step 1: copy existing app
+## The purpose of weather-app
 
-```
-npx create-react-app weather-app
-```
+- build React App with text input box and submit button
+- build function to search weather forecast data with axios
+- render received data: location details, 5 days forecast summaries and one day forecast details
+- during build components, build jest files to test each components
+- make spy test for axios method
 
-Step 2: create remote repos and push to remote repos
+## Screenshots of app
 
-Step 3: clear existing codes and create folders
+- desktop screen (day mode) to show all images
 
-Step 4: adopt 'React team' method in using .jsx file extension. (i.e. not use 'Airbnb team')
+- <img src="screen\screen-desktop.png" height="200">
 
-# Getting Started with Create React App
+- desktop screen (night mode) to show all images
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- <img src="screen\screen-desktop-night.png" height="200">
 
-## Available Scripts
+- mobile screen to show images
 
-In the project directory, you can run:
+- <img src="screen\screen-mobile.png" height="200">
 
-### `npm start`
+## App built with (React)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- simple app to have a single text box input
+- using the input to search and get weather forecast data from weather api
+- showing data into screen
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Testing utilities used (Jest, React Testing Library)
 
-### `npm test`
+| Utilities      | From                     | Usage                                         |
+| -------------- | ------------------------ | --------------------------------------------- |
+| render, screen | "@testing-library/react" | to get screen by component                    |
+| renderer       | "react-test-renderer"    | to generate snapshot for comparison next time |
+| fireEvent      | "@testing-library/react" | to simulate event trigger on component        |
+| waitFor        | "@testing-library/react" | await for a group of actions                  |
+| axios          | "axios"                  | to apply spyOn test for axios api             |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Package used
 
-### `npm run build`
+- Axios API: promise-based HTTP Client for node.js and the browser.
+  [Link](https://axios-http.com/docs/intro)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instructions to run the app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- git clone https://github.com/DavidCheungTW/weather-app.git
+- cd weather-app
+- npm install
+- npm start (use to test app)
+- npm test (a: test all; q: quit test)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Extra functions
 
-### `npm run eject`
+- add css animation to components
+- add mobile screen handle
+- add day/night mode button
+- add digital clock
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Author
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+David Cheung

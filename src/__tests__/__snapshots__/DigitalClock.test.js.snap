@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DigitalClock Renders as expected 1`] = `
+<div
+  className="digital-clock"
+>
+   
+  11:36:07 PM
+   
+</div>
+`;

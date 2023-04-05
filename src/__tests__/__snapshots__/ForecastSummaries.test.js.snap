@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForecastSummaries Renders as expected 1`] = `
+<div
+  className="forecast-summaries"
+>
+  <div
+    className="forecast-summary"
+    data-testid="forecast-summary"
+  >
+    <div
+      className="forecast-summary__date"
+    >
+      Mon 30th Apr
+    </div>
+    <div
+      className="forecast-summary__icon"
+      data-testid="forecast-icon"
+    >
+      <i
+        className="wi wi-day-sunny"
+        name="owm"
+      />
+    </div>
+    <div
+      className="forecast-summary__description"
+    >
+      Clear
+    </div>
+    <div
+      className="forecast-summary__temperature"
+    >
+      11
+      °C
+    </div>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      More details
+    </button>
+  </div>
+  <div
+    className="forecast-summary"
+    data-testid="forecast-summary"
+  >
+    <div
+      className="forecast-summary__date"
+    >
+      Tue 1st May
+    </div>
+    <div
+      className="forecast-summary__icon"
+      data-testid="forecast-icon"
+    >
+      <i
+        className="wi wi-day-thunderstorm"
+        name="owm"
+      />
+    </div>
+    <div
+      className="forecast-summary__description"
+    >
+      Stormy
+    </div>
+    <div
+      className="forecast-summary__temperature"
+    >
+      13
+      °C
+    </div>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      More details
+    </button>
+  </div>
+  <div
+    className="forecast-summary"
+    data-testid="forecast-summary"
+  >
+    <div
+      className="forecast-summary__date"
+    >
+      Wed 2nd May
+    </div>
+    <div
+      className="forecast-summary__icon"
+      data-testid="forecast-icon"
+    >
+      <i
+        className="wi wi-day-snow"
+        name="owm"
+      />
+    </div>
+    <div
+      className="forecast-summary__description"
+    >
+      Heavy Snow
+    </div>
+    <div
+      className="forecast-summary__temperature"
+    >
+      1
+      °C
+    </div>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      More details
+    </button>
+  </div>
+  <div
+    className="forecast-summary"
+    data-testid="forecast-summary"
+  >
+    <div
+      className="forecast-summary__date"
+    >
+      Thu 3rd May
+    </div>
+    <div
+      className="forecast-summary__icon"
+      data-testid="forecast-icon"
+    >
+      <i
+        className="wi wi-tornado"
+        name="owm"
+      />
+    </div>
+    <div
+      className="forecast-summary__description"
+    >
+      Tornado
+    </div>
+    <div
+      className="forecast-summary__temperature"
+    >
+      20
+      °C
+    </div>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      More details
+    </button>
+  </div>
+  <div
+    className="forecast-summary"
+    data-testid="forecast-summary"
+  >
+    <div
+      className="forecast-summary__date"
+    >
+      Fri 4th May
+    </div>
+    <div
+      className="forecast-summary__icon"
+      data-testid="forecast-icon"
+    >
+      <i
+        className="wi wi-day-haze"
+        name="owm"
+      />
+    </div>
+    <div
+      className="forecast-summary__description"
+    >
+      Hazy
+    </div>
+    <div
+      className="forecast-summary__temperature"
+    >
+      25
+      °C
+    </div>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      More details
+    </button>
+  </div>
+</div>
+`;
