@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForecastSummary Renders as expected 1`] = `
+<div
+  className="forecast-summary"
+  data-testid="forecast-summary"
+>
+  <div
+    className="forecast-summary__date"
+  >
+    Mon 30th Apr
+  </div>
+  <div
+    className="forecast-summary__icon"
+    data-testid="forecast-icon"
+  >
+    <i
+      className="wi wi-day-storm-showers"
+      name="owm"
+    />
+  </div>
+  <div
+    className="forecast-summary__description"
+  >
+    Stub description
+  </div>
+  <div
+    className="forecast-summary__temperature"
+  >
+    22
+    °C
+  </div>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    More details
+  </button>
+</div>
+`;

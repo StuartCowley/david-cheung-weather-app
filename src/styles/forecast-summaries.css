@@ -1,0 +1,10 @@
+.forecast-summaries {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media all and (max-width: 600px) {
+  .forecast-summaries {
+    flex-direction: column;
+  }
+}
